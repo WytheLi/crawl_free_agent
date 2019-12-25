@@ -18,6 +18,9 @@ sudo crontab -e
 * */3 * * * /home/wytheli/.virtualenvs/mn_spider/bin/python3 /home/wytheli/Desktop/spider_proxy_pool/run.py >> /home/wytheli/Desktop/spider_proxy_pool/logs/scrapy_spider_proxies.log
 */30 * * * * /home/wytheli/.virtualenvs/mn_spider/bin/python3 /home/wytheli/Desktop/spider_proxy_pool/cache_proxies.py >> /home/wytheli/Desktop/spider_proxy_pool/logs/cache_proxies.log
 
+* */3 * * * /root/.virtualenvs/.virtualenvs/mn_spider/bin/python3 /root/spider_proxy_pool/run.py >> /root/spider_proxy_pool/logs/scrapy_spider_proxies.log
+*/30 * * * * /root/.virtualenvs/.virtualenvs/mn_spider/bin/python3 /root/spider_proxy_pool/cache_proxies.py >> /root/spider_proxy_pool/logs/cache_proxies.log
+
 
 service cron restart
 ```

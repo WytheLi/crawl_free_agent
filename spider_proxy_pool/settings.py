@@ -104,6 +104,7 @@ MONGO_PASSWORD = "Meanergy168"
 MONGO_HOST = "127.0.0.1"
 MONGO_PORT = 27017
 MONGO_DB = "db_test"
+# MONGO_DB = "db_proxies"
 
 # redis
 # REDIS_HOST = "127.0.0.1"

@@ -7,10 +7,10 @@
 # from spider_proxy_pool.common import request_test_proxy
 import aiohttp
 import asyncio
-from spider_proxy_pool.clients import db
+from spider_proxy_pool.clients import db, redis_conn
 
-# # 清空redis cache
-# redis_conn.delete("proxies")
+# 清空redis cache
+redis_conn.delete("proxies")
 # # 从mongo查询
 # find_res = db["proxies"].find()
 # for p in find_res:
@@ -29,6 +29,7 @@ async def fetch_async(url, proxy):
         try:
             async with session.get(url, proxy=proxy, timeout=10) as resp:
                 print("status:"+str(resp.status), proxy)
+                redis_conn.sadd("proxies", proxy)
         except:
             print(proxy + " invalid proxy")
             db["proxies"].remove({"host": proxy[7:].split(":")[0], "port": proxy[7:].split(":")[1]})

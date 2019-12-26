@@ -1,3 +1,5 @@
 pymongo
 scrapy
 requests
+redis
+aiohttp

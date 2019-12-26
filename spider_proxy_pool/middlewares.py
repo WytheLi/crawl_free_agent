@@ -14,8 +14,9 @@ from w3lib.url import safe_url_string
 from six.moves.urllib.parse import urljoin
 
 from spider_proxy_pool.clients import redis_conn
-from spider_proxy_pool.common import request_test_proxy
+from spider_proxy_pool.common import request_test_proxy, ChromeDriver
 from spider_proxy_pool.clients import db
+from lxml import etree
 
 
 class SpiderProxyPoolSpiderMiddleware(object):
@@ -220,6 +221,7 @@ class AutoChangeProxyDownloaderMiddleware(object):
         self._proxies = redis_conn.smembers("proxies")
         self.proxy_status = settings.get('PROXY_STATUS', [302, 403])
         # self.proxy_config = settings.get('PROXY_CONFIG', random.choice(list(self._proxies)).decode())
+        # self.chromedriver = ChromeDriver()
 
     @classmethod
     def from_crawler(cls, crawler):
@@ -249,6 +251,7 @@ class AutoChangeProxyDownloaderMiddleware(object):
             return response
 
         if response.status in self.proxy_status:
+            # 当重定向或者403时，重新分配代理构建请求对象去请求
             # spider.logger.info('Response 302 or 403, Change proxy')
             print("Response 302 or 403, Change proxy")
             request.meta.update({'proxy': random.choice(list(self._proxies)).decode()})

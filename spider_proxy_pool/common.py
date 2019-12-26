@@ -45,7 +45,7 @@ class ChromeDriver(object):
         self.chrome_options.add_argument('--disable-dev-shm-usage')
         self.chrome_options.add_argument('--disable-gpu')  # 如果不加这个选项，有时定位会出现问题
         # self.chrome_options.add_argument("--proxy-server=47.103.117.209:3111")    # 固定代理,用于发帖用途
-        self.chrome_options.add_argument('--headless')  # 增加无界面选项
+        # self.chrome_options.add_argument('--headless')  # 增加无界面选项
         # self.chrome_options.add_experimental_option('prefs', {"profile.managed_default_content_settings.images": 2})  # 不加载图片
         self.chrome_options.add_argument(
             "user-agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.79 Safari/537.36'")

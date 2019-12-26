@@ -15,11 +15,11 @@ python3 run.py
 # 定时启动 一个小时爬取一次
 sudo crontab -e
 # 添加下面这句 (python解释器地址 执行脚本地址 >> 日志文件地址)
-* */3 * * * /home/wytheli/.virtualenvs/mn_spider/bin/python3 /home/wytheli/Desktop/spider_proxy_pool/run.py >> /home/wytheli/Desktop/spider_proxy_pool/logs/scrapy_spider_proxies.log
-*/30 * * * * /home/wytheli/.virtualenvs/mn_spider/bin/python3 /home/wytheli/Desktop/spider_proxy_pool/cache_proxies.py >> /home/wytheli/Desktop/spider_proxy_pool/logs/cache_proxies.log
+* */3 * * * cd /home/wytheli/Desktop/spider_proxy_pool&&/home/wytheli/.virtualenvs/mn_spider/bin/python3 /home/wytheli/Desktop/spider_proxy_pool/run.py >> /home/wytheli/Desktop/spider_proxy_pool/logs/scrapy_spider_proxies.log
+*/30 * * * * cd /home/wytheli/Desktop/spider_proxy_pool&&/home/wytheli/.virtualenvs/mn_spider/bin/python3 /home/wytheli/Desktop/spider_proxy_pool/cache_proxies.py >> /home/wytheli/Desktop/spider_proxy_pool/logs/cache_proxies.log
 
-* */4 * * * /root/.virtualenvs/mn_spider/bin/python3 /root/spider_proxy_pool/run.py >> /root/spider_proxy_pool/logs/scrapy_spider_proxies.log
-*/30 * * * * /root/.virtualenvs/mn_spider/bin/python3 /root/spider_proxy_pool/cache_proxies.py >> /root/spider_proxy_pool/logs/cache_proxies.log
+* */4 * * * cd /root/spider_proxy_pool&&/root/.virtualenvs/mn_spider/bin/python3 /root/spider_proxy_pool/run.py >> /root/spider_proxy_pool/logs/scrapy_spider_proxies.log
+*/30 * * * * cd /root/spider_proxy_pool&&/root/.virtualenvs/mn_spider/bin/python3 /root/spider_proxy_pool/cache_proxies.py >> /root/spider_proxy_pool/logs/cache_proxies.log
 
 
 service cron restart
@@ -53,3 +53,20 @@ redis_conn.lrange("list_test", 0, -1)
 ```
 
 #### 利用tornado.httpclient或aiohttp异步筛选可用代理
+
+
+#### OCR识别，tessersor模块破解简单验证码
+- Tesseract的安装使用 Tesseract是OCR的一个库  
+    - 博客参考： https://blog.csdn.net/jclian91/article/details/80628188
+    - 安装Tesseract：
+    ```sh
+    sudo apt-get tesseract-ocr
+    ```
+    - 安装Tesseract python客户端
+    ```sh
+    pip3 install pytesseract
+    ```
+    - tesserocr
+    ```sh
+    pip3 install tesserocr
+    ```

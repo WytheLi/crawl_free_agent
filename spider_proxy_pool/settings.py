@@ -110,7 +110,7 @@ MONGO_DB = "db_test"
 # REDIS_HOST = "127.0.0.1"
 REDIS_HOST = "139.129.229.223"
 REDIS_PORT = 6379
-REDIS_PASSWORD = ""
+REDIS_PASSWORD = "Meanergy168"
 REDIS_DB = 1
 
 # chromedriver

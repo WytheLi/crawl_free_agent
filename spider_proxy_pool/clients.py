@@ -14,12 +14,21 @@ from scrapy.utils.project import get_project_settings
 #     print(key, value)
 settings = get_project_settings()
 
-mongo_conn = MongoClient(host=settings["MONGO_HOST"], port=settings["MONGO_PORT"], username=settings["MONGO_USERNAME"],
-                         password=settings["MONGO_PASSWORD"])
+mongo_conn = MongoClient(
+    host=settings["MONGO_HOST"],
+    port=settings["MONGO_PORT"],
+    username=settings["MONGO_USERNAME"],
+    password=settings["MONGO_PASSWORD"]
+)
 db = mongo_conn[settings["MONGO_DB"]]
 
 
 # 创建redis连接池
-redis_conn_pool = redis.ConnectionPool(host=settings["REDIS_HOST"], port=settings["REDIS_PORT"], db=settings["REDIS_DB"])
+redis_conn_pool = redis.ConnectionPool(
+    host=settings["REDIS_HOST"],
+    port=settings["REDIS_PORT"],
+    db=settings["REDIS_DB"],
+    password=settings["REDIS_PASSWORD"]
+)
 # 创建连接对象
 redis_conn = redis.Redis(connection_pool=redis_conn_pool)

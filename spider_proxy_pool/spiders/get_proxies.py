@@ -11,10 +11,10 @@ class GetProxiesSpider(scrapy.Spider):
     custom_settings = {
         "ITEM_PIPELINES": {'spider_proxy_pool.pipelines.SpiderProxyPoolPipeline': 300},
         # "DOWNLOADER_MIDDLEWARES": {'spider_proxy_pool.middlewares.ProxyDownloaderMiddleware': 600},
-        'DEFAULT_REQUEST_HEADERS': {'Referer': 'https://ip.ihuan.me/'}
+        'DEFAULT_REQUEST_HEADERS': {'Referer': 'https://ip.ihuan.me/'},
         # # 设置log日志
-        # 'LOG_LEVEL': 'ERROR',
-        # 'LOG_FILE': './logs/spider.log'
+        'LOG_LEVEL': 'ERROR',
+        'LOG_FILE': './logs/spider_proxies.log'
     }
     _page = 1
 

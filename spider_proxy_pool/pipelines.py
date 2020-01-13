@@ -17,13 +17,11 @@ class SpiderProxyPoolPipeline(object):
         # print(item)
         spider.logger.info(item)
         if item["host"] and item["port"]:
-            test_res = self.telnet_test_ip(item["host"], item["port"])
-            if test_res:
-                proxy = db["proxies"].find_one({"host": item["host"], "port": item["port"]})
-                if not proxy:
-                    now_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
-                    item["create_time"] = now_time
-                    db["proxies"].insert_one(item)
+            proxy = db["proxies"].find_one({"host": item["host"], "port": item["port"]})
+            if not proxy:
+                now_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+                item["create_time"] = now_time
+                db["proxies"].insert_one(item)
 
     def telnet_test_ip(self, host, port):
         """
@@ -40,3 +38,16 @@ class SpiderProxyPoolPipeline(object):
         except:
             print("代理ip无效！")
             return False
+
+
+class SpiderXiciProxyPoolPipeline(object):
+    def process_item(self, item, spider):
+        # print(item)
+        spider.logger.info(item)
+        if item["host"] and item["port"]:
+            proxy = db["proxies"].find_one({"host": item["host"], "port": item["port"]})
+            if not proxy:
+                now_time = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+                item["create_time"] = now_time
+                db["proxies"].insert_one(item)
+

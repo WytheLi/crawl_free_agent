@@ -235,7 +235,7 @@ class AutoChangeProxyDownloaderMiddleware(object):
         :param spider:
         :return:
         """
-        request.meta['proxy'] = random.choice(list(self._proxies)).decode()
+        request.meta['proxy'] = random.choice(list(self._proxies)).decode() if self._proxies else ""
 
     def process_response(self, request, response, spider):
         """
@@ -254,7 +254,7 @@ class AutoChangeProxyDownloaderMiddleware(object):
             # 当重定向或者403时，重新分配代理构建请求对象去请求
             # spider.logger.info('Response 302 or 403, Change proxy')
             print("Response 302 or 403, Change proxy")
-            request.meta.update({'proxy': random.choice(list(self._proxies)).decode()})
+            request.meta.update({'proxy': random.choice(list(self._proxies)).decode()}) if self._proxies else ""
             new_request = request.replace(meta=request.meta, dont_filter=True)
             new_request.priority = request.priority + 2
             return new_request
@@ -272,6 +272,6 @@ class AutoChangeProxyDownloaderMiddleware(object):
         """
         # spider.logger.info('Try Request Exception, Change proxy')
         print("Try Request Exception, Change proxy")
-        proxy = random.choice(list(self._proxies)).decode()
+        proxy = random.choice(list(self._proxies)).decode() if self._proxies else ""
         spider.logger.debug(proxy)
         request.meta['proxy'] = proxy

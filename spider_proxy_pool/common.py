@@ -19,7 +19,7 @@ def request_test_proxy(item):
     :return:
     """
     try:
-        if item["is_support_https"] == "支持":
+        if item["is_support_https"] == "支持" or item["is_support_https"] == 1:
             response = requests.get("https://www.baidu.com/?tn=06074089_21_pg",
                                     proxies={"https": "http://" + item["host"] + ":" + item["port"]})
             if response.status_code == 200:

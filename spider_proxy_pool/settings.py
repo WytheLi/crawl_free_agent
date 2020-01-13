@@ -72,6 +72,7 @@ DOWNLOADER_MIDDLEWARES = {
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'spider_proxy_pool.pipelines.SpiderProxyPoolPipeline': 300,
+    'spider_proxy_pool.pipelines.SpiderXiciProxyPoolPipeline': 301
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -102,12 +103,20 @@ LOG_LEVEL = "ERROR"
 MONGO_USERNAME = "root"
 MONGO_PASSWORD = "Meanergy168"
 MONGO_HOST = "127.0.0.1"
+# MONGO_HOST = "139.129.229.223"
 MONGO_PORT = 27017
-MONGO_DB = "db_test"
-# MONGO_DB = "db_proxies"
+# MONGO_DB = "db_test"
+MONGO_DB = "db_proxies"
+
+# mongo 线上
+MONGO_USERNAME_1 = "root"
+MONGO_PASSWORD_1 = "Meanergy168"
+MONGO_HOST_1 = "139.129.229.223"
+MONGO_PORT_1 = 27017
+MONGO_DB_1 = "db_test"
 
 # redis
-# REDIS_HOST = "127.0.0.1"
+REDIS_HOST_LOCALHOST = "127.0.0.1"
 REDIS_HOST = "139.129.229.223"
 REDIS_PORT = 6379
 REDIS_PASSWORD = "Meanergy168"

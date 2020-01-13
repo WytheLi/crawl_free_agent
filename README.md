@@ -70,3 +70,6 @@ redis_conn.lrange("list_test", 0, -1)
     ```sh
     pip3 install tesserocr
     ```
+    
+#### [监控Splash服务](https://gitee.com/AaronJny/splash_listener)
+

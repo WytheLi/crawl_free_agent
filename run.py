@@ -11,7 +11,7 @@ from spider_proxy_pool.spiders.get_proxies import GetProxiesSpider
 from spider_proxy_pool.spiders.get_xici_proxies import GetXiciProxiesSpider
 
 process = CrawlerProcess(get_project_settings())
-process.crawl(GetProxiesSpider)
-# process.crawl(GetXiciProxiesSpider)
+# process.crawl(GetProxiesSpider)
+process.crawl(GetXiciProxiesSpider)
 process.start()
 

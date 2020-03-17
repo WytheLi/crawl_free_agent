@@ -4,6 +4,8 @@
 # @Email   : wytheli168@163.com
 # @Time    : 19-12-20 下午2:23
 # @Description:
+import random
+
 import pymysql
 import redis
 from pymongo import MongoClient
@@ -91,29 +93,6 @@ redis_conn_pool_l = redis.ConnectionPool(
 redis_conn_l = redis.Redis(connection_pool=redis_conn_pool_l)
 
 if __name__ == "__main__":
-    # 字符串操作
-    # redis_conn.set("start_time", "2019-10-10")
-    # res1 = redis_conn.get("start_time").decode()
-    # print(res1)
-    # redis_conn.setex("骑士"+"time_node_aaa", 300, "aaaa")
-    # print(redis_conn.get("骑士" + "time_node_aaa"))
-
-    # res = redis_conn.smembers("proxies")
-    # print(res)
-
-    # 列表操作
-    # redis_conn.lpush("login_user_list", "aaa")
-    # redis_conn.lpush("login_user_list", "bbb")
-    # list_len = redis_conn.llen("login_user_list")
-    # print(list_len)
-    # res_list = redis_conn.lrange("login_user_list", 0, list_len-1)
-    # print(res_list)
-    # res = db["mn_sports_qq_nba_text"].delete_many({"$and": [{"create_time": {"$gte": '2020-01-08'}}, {"create_time": {"$lte": '2020-01-09'}}]})
-    # print(res.deleted_count)
-
-    # res = redis_conn.srandmember("proxies")
-    # print(res)
-
-    redis_conn.set("aaa", 1)
-    res = redis_conn.get("aaa")
-    print(res)
+    _proxies = redis_conn.smembers("proxies")
+    proxy = random.choice(list(_proxies)).decode() if _proxies else ""
+    print(proxy)

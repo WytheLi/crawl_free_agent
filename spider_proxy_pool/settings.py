@@ -98,29 +98,5 @@ ITEM_PIPELINES = {
 
 # 设置日志等级
 LOG_LEVEL = "ERROR"
-
-# mongo
-MONGO_USERNAME = "root"
-MONGO_PASSWORD = "Meanergy168"
-MONGO_HOST = "127.0.0.1"
-# MONGO_HOST = "139.129.229.223"
-MONGO_PORT = 27017
-# MONGO_DB = "db_test"
-MONGO_DB = "db_proxies"
-
-# mongo 线上
-MONGO_USERNAME_1 = "root"
-MONGO_PASSWORD_1 = "Meanergy168"
-MONGO_HOST_1 = "139.129.229.223"
-MONGO_PORT_1 = 27017
-MONGO_DB_1 = "db_test"
-
-# redis
-REDIS_HOST_LOCALHOST = "127.0.0.1"
-REDIS_HOST = "139.129.229.223"
-REDIS_PORT = 6379
-REDIS_PASSWORD = "Meanergy168"
-REDIS_DB = 1
-
 # chromedriver
 CHROMEDRIVER_PATH = "/home/wytheli/Desktop/chromedriver"
